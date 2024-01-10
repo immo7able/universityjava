@@ -1,0 +1,123 @@
+1) 
+import java.util.Scanner;
+
+public class MT1_1 {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        long a = in.nextLong();
+        long b = in.nextLong();
+        System.out.println((a*b*3)*((b+3)*5)+10*a);
+    }
+}
+2)
+import java.util.Scanner;
+
+public class MT1_2 {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        long a = in.nextLong();
+        long b = in.nextLong();
+        if((2*a*b)%3==0)
+            System.out.println("Divisible by 3");
+        else
+            System.out.println("Not divisible by 3");
+    }
+}
+3)
+import java.util.Scanner;
+
+public class MT1_3 {
+    public static long getMod (long a, long b){
+        long mod=1;
+        for(int i=0;i<b;i++){
+            mod*=a;
+        }
+        return mod;
+    }
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        long a = in.nextLong();
+        long b = in.nextLong();
+        System.out.println(getMod(a,b));
+    }
+}
+4)
+import java.util.Scanner;
+
+public class MT1_4 {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int sum = 0;
+        for(int i=1;i<=n;i++){
+            if(i%2==0)
+                sum+=i;
+        }
+        System.out.println(sum);
+    }
+}
+5)
+public class University {
+    String name;
+    int yearEstablished;
+    int numberOfFaculties;
+    String city;
+    String country;
+    public University(){}
+    public University(String name, int yearEstablished, int numberOfFaculties, String city, String country){
+        this.name = name;
+        this.yearEstablished = yearEstablished;
+        this.numberOfFaculties = numberOfFaculties;
+        this.city = city;
+        this.country = country;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getYearEstablished() {
+        return yearEstablished;
+    }
+
+    public void setYearEstablished(int yearEstablished) {
+        this.yearEstablished = yearEstablished;
+    }
+
+    public int getNumberOfFaculties() {
+        return numberOfFaculties;
+    }
+
+    public void setNumberOfFaculties(int numberOfFaculties) {
+        this.numberOfFaculties = numberOfFaculties;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+    public void getData(){
+        System.out.println("University{"+name+";"+yearEstablished+";"+numberOfFaculties+";"+city+";"+country+"}");
+    }
+}
+public class Main {
+    public static void main(String[] args) {
+        University Narxoz = new University("Narxoz", 1963, 5, "Almaty", "Kazakhstan");
+        Narxoz.getData();
+    }
+}

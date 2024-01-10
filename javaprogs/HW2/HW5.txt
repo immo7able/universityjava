@@ -1,0 +1,332 @@
+1)package HW5_1;
+
+public class Car {
+    String name;
+    String model;
+    int maxSpeed;
+    int year;
+    double volume;
+    public Car(){
+    }
+    public Car(String name, String model, int maxSpeed, int year, double volume){
+        this.name = name;
+        this.model = model;
+        this.maxSpeed = maxSpeed;
+        this.year = year;
+        this.volume = volume;
+    }
+    public void ride(){
+        System.out.println("{"+name+";"+model+";"+maxSpeed+";"+year+";"+volume+"}");
+        System.out.println("Car is riding");
+    }
+}
+
+package HW5_1;
+
+public class Main {
+    public static void main(String[] args) {
+        Car car = new Car("Volkswagen","Passat",200, 2005, 2.0);
+        Mercedes mercedes = new Mercedes("Mercedes","E63", 250, 2010, 6.3, "E");
+        Toyota toyota = new Toyota("Toyota","Corolla",200, 2002, 1.6, "Japan");
+        Car[] cars = {car, mercedes, toyota};
+        for(int i=0;i<cars.length;i++){
+            cars[i].ride();
+        }
+    }
+}
+package HW5_1;
+
+public class Mercedes extends Car{
+    String classType;
+    public Mercedes(){}
+    public Mercedes(String name, String model, int maxSpeed, int year, double volume, String classType){
+        super(name, model, maxSpeed, year, volume);
+        this.classType = classType;
+    }
+    @Override
+    public void ride(){
+        System.out.println("{"+name+";"+model+";"+maxSpeed+";"+year+";"+volume+";"+classType+"}");
+        System.out.println("Mercedes is riding");
+    }
+}
+package HW5_1;
+
+public class Toyota extends Car{
+    String manufacturer;
+    public Toyota(){}
+    public Toyota(String name, String model, int maxSpeed, int year, double volume, String manufacturer){
+        super(name, model, maxSpeed, year, volume);
+        this.manufacturer = manufacturer;
+    }
+    @Override
+    public void ride(){
+        System.out.println("{"+name+";"+model+";"+maxSpeed+";"+year+";"+volume+";"+manufacturer+"}");
+        System.out.println("Toyota is riding");
+    }
+}
+2)
+package HW5_2;
+
+public class Sportsman {
+    String fullName;
+    int age;
+    String country;
+    public Sportsman(){}
+    public Sportsman(String fullName, int age, String country){
+        this.fullName = fullName;
+        this.age = age;
+        this.country = country;
+    }
+    public void play(){
+        System.out.println("Sportsman {"+fullName+";"+age+";"+country+"}");
+    }
+}
+package HW5_2;
+
+public class Main {
+    public static void main(String[] args) {
+        Swimmer A = new Swimmer("A", 20, "Kaz","butterfly", 20.5);
+        Swimmer B = new Swimmer("B", 24, "Rus","breaststroke", 21);
+        Swimmer C = new Swimmer("C", 19, "Ger","freestyle", 19);
+        Footballer D = new Footballer("D", 25,"Eng", "goalkeeper","RM");
+        Footballer E = new Footballer("E", 22,"Esp", "midfielder","BARCELONA");
+        Footballer F = new Footballer("F", 30,"Arg", "defender","CHELSEA");
+        Gymnast G = new Gymnast("G", 23,"Rus", 180, 66, "Trampoline");
+        Gymnast H = new Gymnast("H", 20,"Cro", 170, 60, "Acrobatic");
+        Gymnast I = new Gymnast("I", 18,"USA", 165, 55, "Artistic");
+        OlympicGames Brazil = new OlympicGames("Rio", 2024, new Sportsman[] {A,B,C,D,E,F,G,H,I});
+        for(int i=0;i<Brazil.sportsmansList.length;i++){
+            Brazil.sportsmansList[i].play();
+        }
+    }
+}
+package HW5_2;
+
+public class Gymnast extends Sportsman{
+    int height;
+    int weight;
+    String style;
+    public Gymnast(){}
+    public Gymnast(String fullName, int age, String country, int height, int weight, String style){
+        super(fullName, age, country);
+        this.height = height;
+        this.weight = weight;
+        this.style = style;
+    }
+    @Override
+    public void play(){
+        System.out.println("Gymnast {"+fullName+";"+age+";"+country+";"+height+";"+weight+";"+style+"}");
+    }
+}
+package HW5_2;
+
+public class Footballer extends Sportsman{
+    String position;
+    String club;
+    public Footballer(){}
+    public Footballer(String fullName, int age, String country, String position, String club){
+        super(fullName, age, country);
+        this.position = position;
+        this.club = club;
+    }
+    @Override
+    public void play(){
+        System.out.println("Footballer {"+fullName+";"+age+";"+country+";"+position+";"+club+"}");
+    }
+}
+package HW5_2;
+
+public class Swimmer extends Sportsman{
+    String style;
+    double recordTime;
+    public Swimmer(){}
+    public Swimmer(String fullName, int age, String country, String style, double recordTime){
+        super(fullName, age, country);
+        this.style = style;
+        this.recordTime = recordTime;
+    }
+    @Override
+    public void play(){
+        System.out.println("Swimmer {"+fullName+";"+age+";"+country+";"+style+";"+recordTime+"}");
+    }
+}
+package HW5_2;
+
+public class OlympicGames {
+    String city;
+    int year;
+    Sportsman sportsmansList[];
+    public OlympicGames(){
+    }
+    public OlympicGames(String city, int year, Sportsman sportsmansList[]){
+        this.city = city;
+        this.year = year;
+        this.sportsmansList = sportsmansList;
+    }
+}
+3)
+package HW5_3;
+
+public class User {
+    protected int id;
+    protected String login;
+    protected String password;
+    protected String name;
+    protected String surname;
+    public User(){}
+    public User(int id, String login, String password, String name, String surname){
+        this.id = id;
+        this.login = login;
+        this.password = password;
+        this.name = name;
+        this.surname = surname;
+    }
+    public void getData(){
+        System.out.println("User{"+id+";"+login+";"+password+";"+name+";"+surname+"}");
+    }
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getLogin() {
+        return login;
+    }
+
+    public void setLogin(String login) {
+        this.login = login;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+}
+package HW5_3;
+
+public class Main {
+    public static void main(String[] args) {
+        User A = new User(1, "A", "A", "A", "A");
+        User B = new User(2, "B", "B", "B", "B");
+        User C = new User(3, "C", "C", "C", "C");
+        User D = new User(4, "D", "D", "D", "D");
+        User E = new User(5, "E", "E", "E", "E");
+        Student F = new Student(6, "F", "F", "F", "F", 3.5);
+        Student G = new Student(7, "G", "G", "G", "G", 3.0);
+        Student H = new Student(8, "H", "H", "H", "H", 3.3);
+        Student I = new Student(9, "I", "I", "I", "I", 3.1);
+        Student J = new Student(10, "J", "J", "J", "J", 3.2);
+        Staff K = new Staff(11, "K", "K", "K", "K", 300000);
+        Staff L = new Staff(12, "L", "L", "L", "L", 400000);
+        Staff M = new Staff(13, "M", "M", "M", "M", 500000);
+        Staff N = new Staff(14, "N", "N", "N", "N", 600000);
+        Staff O = new Staff(15, "O", "O", "O", "O", 700000);
+        User[] users = {A,B,C,D,E,F,G,H,I,J,K,L,M,N,O};
+        O.addSubject("Math");
+        J.addCourse("Math");
+        for(int i=0;i<users.length;i++){
+            users[i].getData();
+        }
+    }
+}
+package HW5_3;
+
+public class Staff extends User{
+    private double salary;
+    private String subjects[] = new String[100];
+    private int indexOfSubject = 0;
+    public Staff(){}
+    public Staff(int id, String login, String password, String name, String surname, double salary){
+        super(id, login, password, name, surname);
+        this.salary = salary;
+    }
+    public void getData(){
+        System.out.println("Staff{"+id+";"+login+";"+password+";"+name+";"+surname+";"+salary+";("+getSubjects()+")}");
+    }
+    public double getSalary() {
+        return salary;
+    }
+
+    public void setSalary(double salary) {
+        this.salary = salary;
+    }
+    public void addSubject(String subject){
+        subjects[indexOfSubject] = subject;
+        indexOfSubject+=1;
+    }
+    public String getSubjects(){
+        for(int i=0;i<indexOfSubject;i++){
+            return subjects[i]+";";
+        }
+        return "";
+    }
+    public int getIndexOfSubject() {
+        return indexOfSubject;
+    }
+
+    public void setIndexOfSubject(int indexOfSubject) {
+        this.indexOfSubject = indexOfSubject;
+    }
+}
+package HW5_3;
+
+public class Student extends User{
+    private double gpa;
+    private String courses[] = new String[100];
+    private int indexOfCourses = 0;
+    public Student(){}
+    public Student(int id, String login, String password, String name, String surname, double gpa){
+        super(id, login, password, name, surname);
+        this.gpa = gpa;
+    }
+    public void getData(){
+        System.out.println("Student{"+id+";"+login+";"+password+";"+name+";"+surname+";"+gpa+";("+getCourses()+")}");
+    }
+
+    public double getGpa() {
+        return gpa;
+    }
+
+    public void setGpa(double gpa) {
+        this.gpa = gpa;
+    }
+    public void addCourse(String course){
+        courses[indexOfCourses] = course;
+        indexOfCourses+=1;
+    }
+    public String getCourses(){
+        for(int i=0;i<indexOfCourses;i++){
+            return courses[i]+";";
+        }
+        return "";
+    }
+    public int getIndexOfCourses() {
+        return indexOfCourses;
+    }
+
+    public void setIndexOfCourses(int indexOfCourses) {
+        this.indexOfCourses = indexOfCourses;
+    }
+}

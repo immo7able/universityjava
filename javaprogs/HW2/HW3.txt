@@ -1,0 +1,154 @@
+1) import java.util.Scanner;
+public class HW3_1 {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String s = in.next();
+        System.out.print("Enter an index: ");
+        int x = in.nextInt();
+        if (x < 0 || x >= s.length()) {
+            System.out.println("Invalid index!");
+        } else {
+            char c = s.charAt(x);
+            System.out.println("Character at index " + x + " is: " + c);
+        }
+    }
+}
+2) 
+import java.util.Scanner;
+public class HW3_2 {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter the first string: ");
+        String a = in.next();
+        System.out.print("Enter the second string: ");
+        String b = in.next();
+        if (a.equals(b)) {
+            System.out.println("YES");
+        } else {
+            System.out.println("NO");
+        }
+    }
+}
+3)
+import java.util.Scanner;
+public class HW3_3 {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter the first string: ");
+        String a = in.next();
+        System.out.print("Enter the second string: ");
+        String b = in.next();
+        if (a.equalsIgnoreCase(b)) {
+            System.out.println("YES");
+        } else {
+            System.out.println("NO");
+        }
+    }
+}
+4)
+import java.util.Scanner;
+public class HW3_4 {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter the first string: ");
+        String a = in.next();
+        System.out.print("Enter the second string: ");
+        String b = in.next();
+        String c = a+b;
+        System.out.println("Combined string: " + c);
+    }
+}
+5)
+import java.util.Scanner;
+public class HW3_5 {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter the first string: ");
+        String a = in.next();
+        System.out.print("Enter the second string: ");
+        String b = in.next();
+        if (a.endsWith(b)) {
+            System.out.println("YES");
+        } else {
+            System.out.println("NO");
+        }
+    }
+}
+6)
+import java.util.Scanner;
+public class HW3_6 {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String s = in.next();
+        System.out.print("Enter the character to replace: ");
+        char a = in.next().charAt(0);
+        System.out.print("Enter the replacement character: ");
+        char b = in.next().charAt(0);
+        String c = s.replace(a, b);
+        System.out.println("Replaced string: " + c);
+    }
+}
+7)
+import java.util.Scanner;
+public class HW3_7 {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String s = in.next();
+        System.out.print("Enter the first index: ");
+        int start = in.nextInt();
+        System.out.print("Enter the second index: ");
+        int end = in.nextInt();
+        String s2 = new String();
+        char[] arr = s.toCharArray();
+        for(int i=start;i<end;i++){
+            s2+=arr[i];
+        }
+        System.out.println("Symbols between: "+s2);
+    }
+}
+8)
+import java.util.Scanner;
+public class HW3_8 {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String s = in.next();
+        System.out.print("Enter a character: ");
+        char a = in.next().charAt(0);
+        int firstIndex = s.indexOf(a);
+        int lastIndex = s.lastIndexOf(a);
+        if (firstIndex == -1) {
+            System.out.println(firstIndex);
+        } else {
+            System.out.println("First index: " + firstIndex);
+            System.out.println("Last index: " + lastIndex);
+        }
+    }
+}
+9)
+import java.util.Scanner;
+
+public class HW3_9 {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+        String s = in.next();
+        s=s.replaceAll("[bcdfghjklmnpqrstvwxyzBCDFGHJKLMNPQRSTVWXYZ]", "");
+        System.out.println("Only vowels: "+s);
+    }
+}
+10)
+import java.util.Scanner;
+public class HW3_10 {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.print("Enter your first name: ");
+        String firstName = in.next();
+        System.out.print("Enter your last name: ");
+        String lastName = in.next();
+        System.out.println("Your name is: " + firstName.charAt(0) + ". " + lastName);
+    }
+ }

@@ -1,0 +1,280 @@
+1)
+package HW6_1;
+
+public abstract class Food {
+    String name;
+    public Food(String name){
+        this.name = name;
+    }
+    abstract double getCalories();
+}
+package HW6_1;
+
+public class Burger extends Food{
+    int meatAmount;
+    int meatType;
+    public Burger(String name){
+        super(name);
+    }
+    public Burger(String name, int meatAmount, int meatType){
+        super(name);
+        this.meatAmount = meatAmount;
+        this.meatType = meatType;
+    }
+
+    public int getMeatAmount() {
+        return meatAmount;
+    }
+
+    public void setMeatAmount(int meatAmount) {
+        this.meatAmount = meatAmount;
+    }
+
+    public int getMeatType() {
+        return meatType;
+    }
+
+    public void setMeatType(int meatType) {
+        this.meatType = meatType;
+    }
+
+    @Override
+    public double getCalories(){
+        if(meatType == 1) return meatAmount*840;
+        else return meatAmount*560;
+    }
+}
+package HW6_1;
+
+public class Chocolate extends Food{
+    int weight;
+    public Chocolate(String name){
+        super(name);
+    }
+    public Chocolate(String name, int weight){
+        super(name);
+        this.weight = weight;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    @Override
+    public double getCalories(){
+        return weight*740;
+    }
+}
+package HW6_1;
+
+public class Coke extends Food{
+    double volumeLiters;
+    boolean isSparkling;
+    public Coke(String name){
+        super(name);
+    }
+    public Coke(String name, double volumeLiters, boolean isSparkling){
+        super(name);
+        this.volumeLiters = volumeLiters;
+        this.isSparkling = isSparkling;
+    }
+
+    public double getVolumeLiters() {
+        return volumeLiters;
+    }
+
+    public void setVolumeLiters(double volumeLiters) {
+        this.volumeLiters = volumeLiters;
+    }
+
+    public boolean isSparkling() {
+        return isSparkling;
+    }
+
+    public void setSparkling(boolean sparkling) {
+        isSparkling = sparkling;
+    }
+
+    @Override
+    public double getCalories(){
+        if(isSparkling == true) return volumeLiters*400;
+        else return volumeLiters*100;
+    }
+}
+package HW6_1;
+
+public class Main {
+    public static void main(String[] args) {
+        Chocolate twix = new Chocolate("Twix",1);
+        Chocolate snickers = new Chocolate("Snickers",2);
+        Burger bk = new Burger("Burger King",1, 1);
+        Burger mc = new Burger("McDonalds",2, 2);
+        Coke cola = new Coke("Coca-Cola",1, true);
+        Coke fuse = new Coke("Fuse tea",2, false);
+        Food[] food = {twix, snickers, bk, mc, cola, fuse};
+        double max = 0;
+        for(Food a:food){
+            if(a.getCalories()>max)max = a.getCalories();
+            System.out.println(a.name+" "+a.getCalories());
+        }
+        System.out.println("Max = "+max);
+    }
+}
+2)
+package HW6_2;
+
+public abstract class GoldShape {
+    abstract double getVolume();
+    public double getPrice(){
+        return getVolume()*250+1200;
+    }
+
+}
+
+package HW6_2;
+
+public class CubeGold extends GoldShape{
+    double side;
+    public CubeGold(){}
+    public CubeGold(double side){
+        this.side = side;
+    }
+    @Override
+    public double getVolume(){
+        return Math.pow(side, 3);
+    }
+}
+package HW6_2;
+
+public class SphereGold extends GoldShape{
+    double radius;
+    public SphereGold(){}
+    public SphereGold(double radius){
+        this.radius = radius;
+    }
+    @Override
+    public double getVolume(){
+        return  4.0/3.0*Math.PI*Math.pow(radius, 3);
+    }
+}
+package HW6_2;
+
+public class Main {
+    public static void main(String[] args) {
+        SphereGold a = new SphereGold(1);
+        SphereGold b = new SphereGold(2);
+        SphereGold c = new SphereGold(3);
+        CubeGold d = new CubeGold(1);
+        CubeGold e = new CubeGold(2);
+        CubeGold f = new CubeGold(3);
+        GoldShape[] figures = {a,b,c,d,e,f};
+        for(GoldShape i: figures){
+            System.out.println(i.getPrice());
+        }
+    }
+}
+3)
+package HW6_3;
+
+public abstract class Engine {
+    double engineVolume;
+    int cylinderAmount;
+    double engineWeight;
+    public Engine(){}
+    public Engine(double engineVolume, int cylinderAmount, double engineWeight){
+        this.engineVolume = engineVolume;
+        this.cylinderAmount = cylinderAmount;
+        this.engineWeight = engineWeight;
+    }
+    abstract double efficiency();
+    abstract double throttleEnergy();
+    abstract double breakEnergy();
+    double getMaxSpeed(){
+        return (throttleEnergy()-breakEnergy())*efficiency();
+    }
+    public double getEngineVolume() {
+        return engineVolume;
+    }
+
+    public void setEngineVolume(double engineVolume) {
+        this.engineVolume = engineVolume;
+    }
+
+    public int getCylinderAmount() {
+        return cylinderAmount;
+    }
+
+    public void setCylinderAmount(int cylinderAmount) {
+        this.cylinderAmount = cylinderAmount;
+    }
+
+    public double getEngineWeight() {
+        return engineWeight;
+    }
+
+    public void setEngineWeight(double engineWeight) {
+        this.engineWeight = engineWeight;
+    }
+}
+package HW6_3;
+
+public class FerrariEngine extends Engine {
+    public FerrariEngine(){}
+    public FerrariEngine(double engineVolume, int cylinderAmount, double engineWeight){
+        super(engineVolume, cylinderAmount, engineWeight);
+    }
+    @Override
+    public double efficiency(){
+        return 0.25;
+    }
+    public double throttleEnergy(){
+        return engineVolume*cylinderAmount*100;
+    }
+    public double breakEnergy(){
+        return engineWeight*2;
+    }
+}
+package HW6_3;
+
+public class RenaultEngine extends Engine{
+    double extraTurboEnergy;
+    public RenaultEngine(){}
+    public RenaultEngine(double engineVolume, int cylinderAmount, double engineWeight, double extraTurboEnergy){
+        super(engineVolume, cylinderAmount, engineWeight);
+        this.extraTurboEnergy = extraTurboEnergy;
+    }
+    @Override
+    public double efficiency(){
+        return 0.27;
+    }
+    public double throttleEnergy(){
+        return engineVolume*cylinderAmount*110 + extraTurboEnergy;
+    }
+    public double breakEnergy(){
+        return engineWeight*2.1;
+    }
+}
+package HW6_3;
+
+public class Main {
+    public static void main(String[] args) {
+        FerrariEngine a = new FerrariEngine(3, 6, 600);
+        FerrariEngine b = new FerrariEngine(3.5, 6, 700);
+        FerrariEngine c = new FerrariEngine(4, 8, 800);
+        FerrariEngine d = new FerrariEngine(5, 10, 900);
+        FerrariEngine e = new FerrariEngine(6, 12, 1000);
+        RenaultEngine f = new RenaultEngine(3,6,600,10);
+        RenaultEngine g = new RenaultEngine(3.5,6,700,15);
+        RenaultEngine h = new RenaultEngine(4,8,800,20);
+        RenaultEngine i = new RenaultEngine(5,10,900,25);
+        RenaultEngine j = new RenaultEngine(6,12,1000,30);
+        Engine[] engines = {a,b,c,d,e,f,g,h,i,j};
+        for(Engine s: engines){
+            System.out.println(s.getMaxSpeed());
+        }
+    }
+}

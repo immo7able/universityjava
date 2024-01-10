@@ -1,0 +1,130 @@
+1)
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class Main {
+    public static void main(String[] args) {
+        Queue<Integer> a = new LinkedList<>();
+        a.add(0);
+        a.add(1);
+        a.add(2);
+        a.add(3);
+        a.add(4);
+        a.add(5);
+        a.add(6);
+        a.add(7);
+        a.add(8);
+        a.add(9);
+        int i=1;
+        while(!a.isEmpty()){
+            if(i==3)
+                System.out.println(a.poll());
+            a.poll();
+            i++;
+        }
+    }
+}
+2)
+import java.util.HashSet;
+
+public class Main2 {
+    public static void main(String[] args) {
+        HashSet<Integer> hash = new HashSet<>();
+        hash.add(1);
+        hash.add(2);
+        hash.add(2);
+        hash.add(1);
+        hash.add(5);
+        hash.add(3);
+        hash.add(4);
+        hash.add(5);
+        int sum=0;
+        for(Integer i:hash){
+            sum++;
+        }
+        System.out.println("Уникальных "+sum);
+    }
+}
+3)
+import java.util.HashMap;
+import java.util.Map;
+
+public class Main3 {
+    public static void main(String[] args) {
+        HashMap<String, Integer> map = new HashMap<>();
+        map.put("Ahmad", 21);
+        map.put("Sanjar", 20);
+        map.put("Zhibek", 19);
+        map.put("Timur", 18);
+        map.put("Samuel", 17);
+        map.put("Nikita", 21);
+        map.put("Ivan", 22);
+        map.put("Gleb", 20);
+        map.put("Daniil", 18);
+        map.put("Andrey", 19);
+        for(Map.Entry<String, Integer> entry : map.entrySet()) {
+            System.out.println(entry.getKey() + " " + entry.getValue());
+        }
+    }
+}
+4)
+public class Person {
+    String name;
+    String surname;
+    String age;
+    public Person(String name, String surname, String age) {
+        this.name = name;
+        this.surname = surname;
+        this.age = age;
+    }
+    public String getName() {
+        return name;
+    }
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getSurname() {
+        return surname;
+    }
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+    public String getAge() {
+        return age;
+    }
+    public void setAge(String age) {
+        this.age = age;
+    }
+    public String toString(){
+        return "Name: "+name+" Surname: "+surname+" Age: "+age;
+    }
+}
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+
+public class Main4 {
+    public static void main(String[] args) {
+        ArrayList<Person> list = new ArrayList<>();
+        list.add(new Person("A", "A", "16"));
+        list.add(new Person("B", "B", "18"));
+        list.add(new Person("C", "C", "22"));
+        list.add(new Person("D", "D", "23"));
+        list.add(new Person("E", "E", "18"));
+        list.add(new Person("F", "F", "19"));
+        list.add(new Person("G", "G", "24"));
+        list.add(new Person("H", "H", "21"));
+        list.add(new Person("I", "I", "21"));
+        list.add(new Person("J", "J", "23"));
+        Collections.sort(list, new Comparator<Person>() {
+            @Override
+            public int compare(Person o1, Person o2) {
+                return o1.getAge().compareTo(o2.getAge());
+            }
+        });
+        for(Person a: list){
+            System.out.println(a.toString());
+        }
+    }
+}
+5) Не понял
